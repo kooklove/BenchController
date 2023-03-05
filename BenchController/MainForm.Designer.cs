@@ -307,7 +307,7 @@
       this.radioButtonDownloadModeOff.Text = "Off";
       this.radioButtonDownloadModeOff.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.radioButtonDownloadModeOff.UseVisualStyleBackColor = false;
-      this.radioButtonDownloadModeOff.CheckedChanged += new System.EventHandler(this.radioButtonModeOff_CheckedChanged);
+      this.radioButtonDownloadModeOff.CheckedChanged += new System.EventHandler(this.radioButtonDownloadModeOff_CheckedChanged);
       // 
       // radioButtonDownloadModeOn
       // 
@@ -448,7 +448,6 @@
       // 
       // toolStripMenuItemShowWindow
       // 
-      this.toolStripMenuItemShowWindow.Enabled = true;
       this.toolStripMenuItemShowWindow.Name = "toolStripMenuItemShowWindow";
       this.toolStripMenuItemShowWindow.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
       this.toolStripMenuItemShowWindow.Size = new System.Drawing.Size(203, 22);
@@ -653,6 +652,7 @@
       this.textBoxPrint.Location = new System.Drawing.Point(167, 12);
       this.textBoxPrint.Multiline = true;
       this.textBoxPrint.Name = "textBoxPrint";
+      this.textBoxPrint.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
       this.textBoxPrint.Size = new System.Drawing.Size(154, 198);
       this.textBoxPrint.TabIndex = 26;
       this.textBoxPrint.TextChanged += new System.EventHandler(this.TextBoxPrint_TextChanged);

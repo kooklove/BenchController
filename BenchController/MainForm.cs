@@ -211,7 +211,7 @@ namespace BenchController {
       if (checkBoxShowConsole.Checked) {
         this.ClientSize = new System.Drawing.Size(324, this.ClientSize.Height);
       } else {
-        this.ClientSize = new System.Drawing.Size(154, this.ClientSize.Height);
+        this.ClientSize = new System.Drawing.Size(160, this.ClientSize.Height);
       }
     }
 
@@ -261,6 +261,7 @@ namespace BenchController {
           parse_received_statuses = true;
         }
         string indata = serialPort.ReadExisting();
+        Console.WriteLine(indata);
         if (this.textBoxPrint.InvokeRequired == true) {
           this.textBoxPrint.Invoke((MethodInvoker)delegate {
           this.textBoxPrint.AppendText(indata);
@@ -300,10 +301,9 @@ namespace BenchController {
     private readonly object lock_connect = new object();
     private async void UpdateButtonConnect() {
       try {
+        await Task.Delay(200);  // Wait for Connect to be ready
         if (buttonConnect.Text == "Connect") {
-          await Task.Delay(200);  // Prevent Unexpected Response from Arduino
           lock (lock_connect) {
-            //serialPort.Close();
             serialPort.Open();
             if (serialPort.IsOpen) {
               buttonConnect.BackColor = System.Drawing.Color.SpringGreen;
@@ -317,7 +317,7 @@ namespace BenchController {
             }
           }
         } else {
-          await Task.Delay(200);  // Prevent Unexpected Response from Arduino
+          await Task.Delay(200);  // Wait for Connect to be ready
           lock (lock_connect) {
             serialPort.DiscardInBuffer();
             serialPort.DiscardOutBuffer();
@@ -619,21 +619,13 @@ namespace BenchController {
     private async void DoBenchReset() {
       if (IsEnabledButtonBenchReset()) {
         buttonBenchReset.Enabled = false;
-        radioButtonPowerOn.Checked = false;
         radioButtonPowerOff.Checked = true;
-        UpdateRadioButtonPower(false);
-        await Task.Delay(200);
-        radioButtonPowerOn.Checked = true;
-        radioButtonPowerOff.Checked = false;
-        UpdateRadioButtonPower(true);
         await Task.Delay(500);
-        radioButtonKL15On.Checked = false;
+        radioButtonPowerOn.Checked = true;
+        await Task.Delay(500);
         radioButtonKL15Off.Checked = true;
-        UpdateRadioButtonKL15(false);
-        await Task.Delay(200);
+        await Task.Delay(500);
         radioButtonKL15On.Checked = true;
-        radioButtonKL15Off.Checked = false;
-        UpdateRadioButtonKL15(true);
         buttonBenchReset.Enabled = true;
       }
     }
@@ -641,7 +633,7 @@ namespace BenchController {
     private async void DoReset() {
       if (IsEnabledButtonReset()) {
         buttonReset.Enabled = false;
-        await Task.Delay(200);
+        SerialPortWriteAndRead(Commands.Reset);
         buttonReset.Enabled = true;
       }
     }

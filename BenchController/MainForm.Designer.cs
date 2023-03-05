@@ -84,12 +84,12 @@
       this.buttonConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
       this.buttonConnect.Cursor = System.Windows.Forms.Cursors.Hand;
       this.buttonConnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.buttonConnect.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonConnect.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonConnect.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.buttonConnect.Location = new System.Drawing.Point(61, 39);
+      this.buttonConnect.Location = new System.Drawing.Point(71, 37);
       this.buttonConnect.Margin = new System.Windows.Forms.Padding(0);
       this.buttonConnect.Name = "buttonConnect";
-      this.buttonConnect.Size = new System.Drawing.Size(65, 21);
+      this.buttonConnect.Size = new System.Drawing.Size(65, 24);
       this.buttonConnect.TabIndex = 23;
       this.buttonConnect.Text = "Connect";
       this.buttonConnect.UseVisualStyleBackColor = false;
@@ -101,12 +101,12 @@
       this.buttonBenchReset.Cursor = System.Windows.Forms.Cursors.Hand;
       this.buttonBenchReset.Enabled = false;
       this.buttonBenchReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.buttonBenchReset.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+      this.buttonBenchReset.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonBenchReset.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
       this.buttonBenchReset.Location = new System.Drawing.Point(6, 65);
       this.buttonBenchReset.Margin = new System.Windows.Forms.Padding(0);
       this.buttonBenchReset.Name = "buttonBenchReset";
-      this.buttonBenchReset.Size = new System.Drawing.Size(81, 25);
+      this.buttonBenchReset.Size = new System.Drawing.Size(90, 25);
       this.buttonBenchReset.TabIndex = 22;
       this.buttonBenchReset.Text = "BenchReset";
       this.buttonBenchReset.UseVisualStyleBackColor = false;
@@ -225,11 +225,11 @@
       // checkBoxExtended
       // 
       this.checkBoxExtended.AutoSize = true;
-      this.checkBoxExtended.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+      this.checkBoxExtended.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.checkBoxExtended.Location = new System.Drawing.Point(6, 19);
       this.checkBoxExtended.Margin = new System.Windows.Forms.Padding(0);
       this.checkBoxExtended.Name = "checkBoxExtended";
-      this.checkBoxExtended.Size = new System.Drawing.Size(77, 18);
+      this.checkBoxExtended.Size = new System.Drawing.Size(82, 18);
       this.checkBoxExtended.TabIndex = 21;
       this.checkBoxExtended.Text = "Extended";
       this.checkBoxExtended.UseVisualStyleBackColor = true;
@@ -242,12 +242,12 @@
       this.radioButtonKL15On.BackColor = System.Drawing.Color.Transparent;
       this.radioButtonKL15On.Enabled = false;
       this.radioButtonKL15On.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.radioButtonKL15On.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.radioButtonKL15On.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.radioButtonKL15On.Location = new System.Drawing.Point(66, 11);
       this.radioButtonKL15On.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonKL15On.Name = "radioButtonKL15On";
       this.radioButtonKL15On.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-      this.radioButtonKL15On.Size = new System.Drawing.Size(33, 25);
+      this.radioButtonKL15On.Size = new System.Drawing.Size(31, 26);
       this.radioButtonKL15On.TabIndex = 4;
       this.radioButtonKL15On.TabStop = true;
       this.radioButtonKL15On.Text = "On";
@@ -262,10 +262,11 @@
       this.radioButtonKL15Off.BackColor = System.Drawing.Color.Transparent;
       this.radioButtonKL15Off.Enabled = false;
       this.radioButtonKL15Off.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonKL15Off.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.radioButtonKL15Off.Location = new System.Drawing.Point(99, 11);
       this.radioButtonKL15Off.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonKL15Off.Name = "radioButtonKL15Off";
-      this.radioButtonKL15Off.Size = new System.Drawing.Size(34, 25);
+      this.radioButtonKL15Off.Size = new System.Drawing.Size(38, 26);
       this.radioButtonKL15Off.TabIndex = 3;
       this.radioButtonKL15Off.TabStop = true;
       this.radioButtonKL15Off.Text = "Off";
@@ -278,7 +279,7 @@
       this.groupBoxKl15.Controls.Add(this.radioButtonKL15On);
       this.groupBoxKl15.Controls.Add(this.radioButtonKL15Off);
       this.groupBoxKl15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.groupBoxKl15.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.groupBoxKl15.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.groupBoxKl15.Location = new System.Drawing.Point(8, 130);
       this.groupBoxKl15.Margin = new System.Windows.Forms.Padding(0);
       this.groupBoxKl15.Name = "groupBoxKl15";
@@ -296,12 +297,12 @@
       this.radioButtonDownloadModeOff.BackColor = System.Drawing.Color.Transparent;
       this.radioButtonDownloadModeOff.Enabled = false;
       this.radioButtonDownloadModeOff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.radioButtonDownloadModeOff.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.radioButtonDownloadModeOff.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.radioButtonDownloadModeOff.Location = new System.Drawing.Point(100, 10);
       this.radioButtonDownloadModeOff.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonDownloadModeOff.Name = "radioButtonDownloadModeOff";
       this.radioButtonDownloadModeOff.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-      this.radioButtonDownloadModeOff.Size = new System.Drawing.Size(34, 25);
+      this.radioButtonDownloadModeOff.Size = new System.Drawing.Size(38, 26);
       this.radioButtonDownloadModeOff.TabIndex = 4;
       this.radioButtonDownloadModeOff.TabStop = true;
       this.radioButtonDownloadModeOff.Text = "Off";
@@ -316,10 +317,11 @@
       this.radioButtonDownloadModeOn.BackColor = System.Drawing.Color.Transparent;
       this.radioButtonDownloadModeOn.Enabled = false;
       this.radioButtonDownloadModeOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonDownloadModeOn.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.radioButtonDownloadModeOn.Location = new System.Drawing.Point(66, 10);
       this.radioButtonDownloadModeOn.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonDownloadModeOn.Name = "radioButtonDownloadModeOn";
-      this.radioButtonDownloadModeOn.Size = new System.Drawing.Size(33, 25);
+      this.radioButtonDownloadModeOn.Size = new System.Drawing.Size(31, 26);
       this.radioButtonDownloadModeOn.TabIndex = 3;
       this.radioButtonDownloadModeOn.TabStop = true;
       this.radioButtonDownloadModeOn.Text = "On";
@@ -329,12 +331,12 @@
       // comboBoxPort
       // 
       this.comboBoxPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.comboBoxPort.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxPort.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxPort.FormattingEnabled = true;
-      this.comboBoxPort.Location = new System.Drawing.Point(6, 39);
+      this.comboBoxPort.Location = new System.Drawing.Point(6, 37);
       this.comboBoxPort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxPort.Name = "comboBoxPort";
-      this.comboBoxPort.Size = new System.Drawing.Size(54, 24);
+      this.comboBoxPort.Size = new System.Drawing.Size(64, 23);
       this.comboBoxPort.Sorted = true;
       this.comboBoxPort.TabIndex = 24;
       this.comboBoxPort.DropDown += new System.EventHandler(this.ComboBoxPort_DropDownSelected);
@@ -346,7 +348,7 @@
       this.groupBoxDownloadMode.Controls.Add(this.radioButtonDownloadModeOff);
       this.groupBoxDownloadMode.Controls.Add(this.radioButtonDownloadModeOn);
       this.groupBoxDownloadMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.groupBoxDownloadMode.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.groupBoxDownloadMode.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.groupBoxDownloadMode.Location = new System.Drawing.Point(8, 171);
       this.groupBoxDownloadMode.Margin = new System.Windows.Forms.Padding(0);
       this.groupBoxDownloadMode.Name = "groupBoxDownloadMode";
@@ -367,11 +369,11 @@
       // checkBoxShowTaskBar
       // 
       this.checkBoxShowTaskBar.AutoSize = true;
-      this.checkBoxShowTaskBar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
-      this.checkBoxShowTaskBar.Location = new System.Drawing.Point(83, 1);
+      this.checkBoxShowTaskBar.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.checkBoxShowTaskBar.Location = new System.Drawing.Point(88, 1);
       this.checkBoxShowTaskBar.Margin = new System.Windows.Forms.Padding(0);
       this.checkBoxShowTaskBar.Name = "checkBoxShowTaskBar";
-      this.checkBoxShowTaskBar.Size = new System.Drawing.Size(70, 18);
+      this.checkBoxShowTaskBar.Size = new System.Drawing.Size(75, 18);
       this.checkBoxShowTaskBar.TabIndex = 14;
       this.checkBoxShowTaskBar.Text = "TaskBar";
       this.checkBoxShowTaskBar.UseVisualStyleBackColor = true;
@@ -380,11 +382,11 @@
       // checkBoxShowConsole
       // 
       this.checkBoxShowConsole.AutoSize = true;
-      this.checkBoxShowConsole.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
-      this.checkBoxShowConsole.Location = new System.Drawing.Point(83, 19);
+      this.checkBoxShowConsole.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.checkBoxShowConsole.Location = new System.Drawing.Point(88, 19);
       this.checkBoxShowConsole.Margin = new System.Windows.Forms.Padding(0);
       this.checkBoxShowConsole.Name = "checkBoxShowConsole";
-      this.checkBoxShowConsole.Size = new System.Drawing.Size(72, 18);
+      this.checkBoxShowConsole.Size = new System.Drawing.Size(75, 18);
       this.checkBoxShowConsole.TabIndex = 15;
       this.checkBoxShowConsole.Text = "Console";
       this.checkBoxShowConsole.UseVisualStyleBackColor = true;
@@ -395,11 +397,11 @@
       this.checkBoxTopMost.AutoSize = true;
       this.checkBoxTopMost.Checked = true;
       this.checkBoxTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.checkBoxTopMost.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+      this.checkBoxTopMost.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.checkBoxTopMost.Location = new System.Drawing.Point(6, 1);
       this.checkBoxTopMost.Margin = new System.Windows.Forms.Padding(0);
       this.checkBoxTopMost.Name = "checkBoxTopMost";
-      this.checkBoxTopMost.Size = new System.Drawing.Size(74, 18);
+      this.checkBoxTopMost.Size = new System.Drawing.Size(75, 18);
       this.checkBoxTopMost.TabIndex = 13;
       this.checkBoxTopMost.Text = "TopMost";
       this.checkBoxTopMost.UseVisualStyleBackColor = true;
@@ -411,12 +413,12 @@
       this.buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
       this.buttonReset.Enabled = false;
       this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.buttonReset.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+      this.buttonReset.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonReset.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.buttonReset.Location = new System.Drawing.Point(92, 65);
+      this.buttonReset.Location = new System.Drawing.Point(99, 65);
       this.buttonReset.Margin = new System.Windows.Forms.Padding(0);
       this.buttonReset.Name = "buttonReset";
-      this.buttonReset.Size = new System.Drawing.Size(55, 25);
+      this.buttonReset.Size = new System.Drawing.Size(58, 25);
       this.buttonReset.TabIndex = 12;
       this.buttonReset.Text = "Reset";
       this.buttonReset.UseVisualStyleBackColor = false;
@@ -532,12 +534,12 @@
       this.radioButtonPowerOn.BackColor = System.Drawing.Color.Transparent;
       this.radioButtonPowerOn.Enabled = false;
       this.radioButtonPowerOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.radioButtonPowerOn.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.radioButtonPowerOn.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.radioButtonPowerOn.Location = new System.Drawing.Point(67, 10);
       this.radioButtonPowerOn.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonPowerOn.Name = "radioButtonPowerOn";
       this.radioButtonPowerOn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-      this.radioButtonPowerOn.Size = new System.Drawing.Size(33, 25);
+      this.radioButtonPowerOn.Size = new System.Drawing.Size(31, 26);
       this.radioButtonPowerOn.TabIndex = 4;
       this.radioButtonPowerOn.TabStop = true;
       this.radioButtonPowerOn.Text = "On";
@@ -555,7 +557,7 @@
       this.radioButtonPowerOff.Location = new System.Drawing.Point(100, 10);
       this.radioButtonPowerOff.Margin = new System.Windows.Forms.Padding(0);
       this.radioButtonPowerOff.Name = "radioButtonPowerOff";
-      this.radioButtonPowerOff.Size = new System.Drawing.Size(34, 25);
+      this.radioButtonPowerOff.Size = new System.Drawing.Size(38, 26);
       this.radioButtonPowerOff.TabIndex = 3;
       this.radioButtonPowerOff.TabStop = true;
       this.radioButtonPowerOff.Text = "Off";
@@ -568,7 +570,7 @@
       this.groupBoxPower.Controls.Add(this.radioButtonPowerOn);
       this.groupBoxPower.Controls.Add(this.radioButtonPowerOff);
       this.groupBoxPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.groupBoxPower.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+      this.groupBoxPower.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.groupBoxPower.Location = new System.Drawing.Point(8, 92);
       this.groupBoxPower.Margin = new System.Windows.Forms.Padding(0);
       this.groupBoxPower.Name = "groupBoxPower";
@@ -585,7 +587,7 @@
       this.settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.settings.FlatAppearance.BorderSize = 0;
       this.settings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-      this.settings.Location = new System.Drawing.Point(128, 41);
+      this.settings.Location = new System.Drawing.Point(138, 39);
       this.settings.Margin = new System.Windows.Forms.Padding(0);
       this.settings.Name = "settings";
       this.settings.Size = new System.Drawing.Size(19, 19);
@@ -661,7 +663,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(154, 213);
+      this.ClientSize = new System.Drawing.Size(160, 213);
       this.Controls.Add(this.textBoxPrint);
       this.Controls.Add(this.groupBoxDoIP);
       this.Controls.Add(this.settings);

@@ -209,9 +209,9 @@ namespace BenchController {
 
     private void UpdateCheckboxShowConsole() {
       if (checkBoxShowConsole.Checked) {
-        this.ClientSize = new System.Drawing.Size(324, this.ClientSize.Height);
+        this.ClientSize = new System.Drawing.Size(340, this.ClientSize.Height);
       } else {
-        this.ClientSize = new System.Drawing.Size(160, this.ClientSize.Height);
+        this.ClientSize = new System.Drawing.Size(170, this.ClientSize.Height);
       }
     }
 
@@ -300,6 +300,7 @@ namespace BenchController {
 
     private readonly object lock_connect = new object();
     private async void UpdateButtonConnect() {
+      this.Activate();
       try {
         await Task.Delay(200);  // Wait for Connect to be ready
         if (buttonConnect.Text == "Connect") {
@@ -393,34 +394,31 @@ namespace BenchController {
 
     private bool ToggleRadioButtonPower() {
       bool result = false;
+      this.Activate();
       if (IsEnabledRadioButtonPower()) {
         result = true;
-        if (this.radioButtonPowerOn.Checked) {
-          radioButtonPowerOn.Checked = false;
+        if (radioButtonPowerOn.Checked) {
           radioButtonPowerOff.Checked = true;
-          UpdateRadioButtonPower(true);
-        } else {
+        } else if (radioButtonPowerOff.Checked) {
           radioButtonPowerOn.Checked = true;
-          radioButtonPowerOff.Checked = false;
-          UpdateRadioButtonPower(false);
+        } else {
+          MessageBox.Show("Failed to get current power status");
         }
-        
       }
       return result;
     }
 
     private bool ToggleRadioButtonDownloadMode() {
       bool result = false;
+      this.Activate();
       if (IsEnabledRadioButtonDownloadMode()) {
         result = true;
-        if (this.radioButtonDownloadModeOn.Checked) {
-          radioButtonDownloadModeOn.Checked = false;
+        if (radioButtonDownloadModeOn.Checked) {
           radioButtonDownloadModeOff.Checked = true;
-          UpdateRadioButtonDownloadMode(true);
-        } else {
+        } else if (radioButtonDownloadModeOff.Checked) {
           radioButtonDownloadModeOn.Checked = true;
-          radioButtonDownloadModeOff.Checked = false;
-          UpdateRadioButtonDownloadMode(false);
+        } else {
+          MessageBox.Show("Failed to get current DownloadMode status");
         }
       }
       return result;
@@ -428,16 +426,15 @@ namespace BenchController {
 
     private bool ToggleRadioButtonKL15() {
       bool result = false;
+      this.Activate();
       if (IsEnabledRadioButtonKL15()) {
         result = true;
-        if (this.radioButtonKL15On.Checked) {
-          radioButtonKL15On.Checked = false;
+        if (radioButtonKL15On.Checked) {
           radioButtonKL15Off.Checked = true;
-          UpdateRadioButtonKL15(true);
-        } else {
+        } else if (radioButtonKL15Off.Checked) {
           radioButtonKL15On.Checked = true;
-          radioButtonKL15Off.Checked = false;
-          UpdateRadioButtonKL15(false);
+        } else {
+          MessageBox.Show("Failed to get current DownloadMode status");
         }
       }
       return result;
@@ -449,6 +446,16 @@ namespace BenchController {
           if (this.radioButtonPowerOn.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.PowerOn);
+            else {
+              if (radioButtonPowerOn.Checked == false) {
+                if (radioButtonPowerOn.InvokeRequired) {
+                  radioButtonPowerOn.Invoke(new MethodInvoker(delegate {
+                    radioButtonPowerOn.Checked = true; }));
+                } 
+                else
+                  radioButtonPowerOn.Checked = true;
+              }
+            }
             radioButtonPowerOn.BackColor = System.Drawing.Color.SpringGreen;
             radioButtonPowerOff.BackColor = SystemColors.Control;
           }
@@ -456,6 +463,15 @@ namespace BenchController {
           if (this.radioButtonPowerOff.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.PowerOff);
+            else {
+              if (!this.radioButtonPowerOff.Checked) {
+                if (radioButtonPowerOff.InvokeRequired) {
+                  radioButtonPowerOff.Invoke(new MethodInvoker(delegate {
+                    radioButtonPowerOff.Checked = true; }));
+                } else
+                  radioButtonPowerOff.Checked = true;
+              }
+            }
             radioButtonPowerOn.BackColor = SystemColors.Control;
             radioButtonPowerOff.BackColor = System.Drawing.Color.LightCoral;
           } 
@@ -471,6 +487,16 @@ namespace BenchController {
           if (this.radioButtonKL15On.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.KL15On);
+            else {
+              if (radioButtonKL15On.Checked == false) {
+                if (radioButtonKL15On.InvokeRequired) {
+                  radioButtonKL15On.Invoke(new MethodInvoker(delegate {
+                    radioButtonKL15On.Checked = true;
+                  }));
+                } else
+                  radioButtonKL15On.Checked = true;
+              }
+            }
             radioButtonKL15On.BackColor = System.Drawing.Color.SpringGreen;
             radioButtonKL15Off.BackColor = SystemColors.Control;
           }
@@ -478,6 +504,16 @@ namespace BenchController {
           if (this.radioButtonKL15Off.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.KL15Off);
+            else {
+              if (!this.radioButtonKL15Off.Checked) {
+                if (radioButtonKL15Off.InvokeRequired) {
+                  radioButtonKL15Off.Invoke(new MethodInvoker(delegate {
+                    radioButtonKL15Off.Checked = true;
+                  }));
+                } else
+                  radioButtonKL15Off.Checked = true;
+              }
+            }
             radioButtonKL15On.BackColor = SystemColors.Control;
             radioButtonKL15Off.BackColor = System.Drawing.Color.LightCoral;
           }
@@ -491,6 +527,16 @@ namespace BenchController {
           if (this.radioButtonDownloadModeOn.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.DownloadModeOn);
+            else {
+              if (radioButtonDownloadModeOn.Checked == false) {
+                if (radioButtonDownloadModeOn.InvokeRequired) {
+                  radioButtonDownloadModeOn.Invoke(new MethodInvoker(delegate {
+                    radioButtonDownloadModeOn.Checked = true;
+                  }));
+                } else
+                  radioButtonDownloadModeOn.Checked = true;
+              }
+            }
             radioButtonDownloadModeOn.BackColor = System.Drawing.Color.LightBlue;
             radioButtonDownloadModeOff.BackColor = SystemColors.Control;
           }
@@ -498,6 +544,16 @@ namespace BenchController {
           if (this.radioButtonDownloadModeOff.Checked || (send_command == false)) {
             if (send_command)
               SerialPortWriteAndRead(Commands.DownloadModeOff);
+            else {
+              if (!this.radioButtonDownloadModeOff.Checked) {
+                if (radioButtonDownloadModeOff.InvokeRequired) {
+                  radioButtonDownloadModeOff.Invoke(new MethodInvoker(delegate {
+                    radioButtonDownloadModeOff.Checked = true;
+                  }));
+                } else
+                  radioButtonDownloadModeOff.Checked = true;
+              }
+            }
             radioButtonDownloadModeOn.BackColor = SystemColors.Control;
             radioButtonDownloadModeOff.BackColor = System.Drawing.Color.Yellow;
           }
@@ -506,11 +562,13 @@ namespace BenchController {
     }
 
     private void radioButtonPowerOn_CheckedChanged(object sender, EventArgs e) {
+      Console.WriteLine("radioButtonPowerOn_CheckedChanged");
       if (IsEnabledRadioButtonPower())
         UpdateRadioButtonPower(true);
     }
 
     private void radioButtonPowerOff_CheckedChanged(object sender, EventArgs e) {
+      Console.WriteLine("radioButtonPowerOff_CheckedChanged");
       if (IsEnabledRadioButtonPower())
         UpdateRadioButtonPower(false);
     }
@@ -617,6 +675,7 @@ namespace BenchController {
     }
 
     private async void DoBenchReset() {
+      this.Activate();
       if (IsEnabledButtonBenchReset()) {
         buttonBenchReset.Enabled = false;
         radioButtonPowerOff.Checked = true;
@@ -631,9 +690,11 @@ namespace BenchController {
     }
 
     private async void DoReset() {
+      this.Activate();
       if (IsEnabledButtonReset()) {
         buttonReset.Enabled = false;
         SerialPortWriteAndRead(Commands.Reset);
+        await Task.Delay(200);
         buttonReset.Enabled = true;
       }
     }

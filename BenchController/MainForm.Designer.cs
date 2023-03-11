@@ -70,6 +70,7 @@
       this.radioButtonDoipOn = new System.Windows.Forms.RadioButton();
       this.radioButtonDoipOff = new System.Windows.Forms.RadioButton();
       this.textBoxPrint = new System.Windows.Forms.TextBox();
+      this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.groupBoxMibCan.SuspendLayout();
       this.groupBoxAbCan.SuspendLayout();
       this.groupBoxKl15.SuspendLayout();
@@ -369,6 +370,8 @@
       // checkBoxShowTaskBar
       // 
       this.checkBoxShowTaskBar.AutoSize = true;
+      this.checkBoxShowTaskBar.Checked = true;
+      this.checkBoxShowTaskBar.CheckState = System.Windows.Forms.CheckState.Checked;
       this.checkBoxShowTaskBar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.checkBoxShowTaskBar.Location = new System.Drawing.Point(96, 1);
       this.checkBoxShowTaskBar.Margin = new System.Windows.Forms.Padding(0);
@@ -443,15 +446,16 @@
             this.toolStripMenuItemEcuReset,
             this.toolStripMenuItemBenchReset,
             this.abCanConnectToolStripMenuItem,
-            this.toolStripMenuItemMibCanConnect});
+            this.toolStripMenuItemMibCanConnect,
+            this.closeToolStripMenuItem});
       this.contextMenuStrip.Name = "contextMenuStrip";
-      this.contextMenuStrip.Size = new System.Drawing.Size(204, 202);
+      this.contextMenuStrip.Size = new System.Drawing.Size(204, 246);
       this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
       // 
       // toolStripMenuItemShowWindow
       // 
       this.toolStripMenuItemShowWindow.Name = "toolStripMenuItemShowWindow";
-      this.toolStripMenuItemShowWindow.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+      this.toolStripMenuItemShowWindow.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
       this.toolStripMenuItemShowWindow.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemShowWindow.Text = "ShowWindow";
       this.toolStripMenuItemShowWindow.Click += new System.EventHandler(this.toolStripMenuItemShowWindow_Click);
@@ -462,7 +466,7 @@
       this.toolStripMenuItemTopMost.CheckOnClick = true;
       this.toolStripMenuItemTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemTopMost.Name = "toolStripMenuItemTopMost";
-      this.toolStripMenuItemTopMost.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+      this.toolStripMenuItemTopMost.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
       this.toolStripMenuItemTopMost.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemTopMost.Text = "TopMost";
       this.toolStripMenuItemTopMost.Click += new System.EventHandler(this.toolStripMenuItemTopMost_Click);
@@ -474,7 +478,7 @@
       this.toolStripMenuItemPower.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemPower.Enabled = false;
       this.toolStripMenuItemPower.Name = "toolStripMenuItemPower";
-      this.toolStripMenuItemPower.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
+      this.toolStripMenuItemPower.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
       this.toolStripMenuItemPower.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemPower.Text = "PowerOn";
       this.toolStripMenuItemPower.Click += new System.EventHandler(this.toolStripMenuItemPower_Click);
@@ -486,7 +490,7 @@
       this.toolStripMenuItemKL15.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemKL15.Enabled = false;
       this.toolStripMenuItemKL15.Name = "toolStripMenuItemKL15";
-      this.toolStripMenuItemKL15.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.K)));
+      this.toolStripMenuItemKL15.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
       this.toolStripMenuItemKL15.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemKL15.Text = "KL15On";
       this.toolStripMenuItemKL15.Click += new System.EventHandler(this.toolStripMenuItemKL15_Click);
@@ -507,7 +511,7 @@
       // 
       this.toolStripMenuItemEcuReset.Enabled = false;
       this.toolStripMenuItemEcuReset.Name = "toolStripMenuItemEcuReset";
-      this.toolStripMenuItemEcuReset.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+      this.toolStripMenuItemEcuReset.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
       this.toolStripMenuItemEcuReset.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemEcuReset.Text = "Reset";
       // 
@@ -515,7 +519,7 @@
       // 
       this.toolStripMenuItemBenchReset.Enabled = false;
       this.toolStripMenuItemBenchReset.Name = "toolStripMenuItemBenchReset";
-      this.toolStripMenuItemBenchReset.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
+      this.toolStripMenuItemBenchReset.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
       this.toolStripMenuItemBenchReset.Size = new System.Drawing.Size(203, 22);
       this.toolStripMenuItemBenchReset.Text = "Bench Reset";
       // 
@@ -660,6 +664,14 @@
       this.textBoxPrint.TabIndex = 26;
       this.textBoxPrint.TextChanged += new System.EventHandler(this.TextBoxPrint_TextChanged);
       // 
+      // closeToolStripMenuItem
+      // 
+      this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+      this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+      this.closeToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+      this.closeToolStripMenuItem.Text = "Close";
+      this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -749,6 +761,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMibCanConnect;
         private System.IO.Ports.SerialPort serialPort;
     private System.Windows.Forms.TextBox textBoxPrint;
+    private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
   }
 }
 

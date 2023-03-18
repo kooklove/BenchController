@@ -312,23 +312,24 @@ namespace BenchController {
     private async void UpdateButtonConnect() {
       this.Activate();
       try {
-        await Task.Delay(200);  // Wait for Connect to be ready
         if (buttonConnect.Text == "Connect") {
           lock (lock_connect) {
             serialPort.Open();
-            if (serialPort.IsOpen) {
+          }
+          if (serialPort.IsOpen) {
+            await Task.Delay(2000);  // Wait for Connect to be ready
+            lock (lock_connect) {
               buttonConnect.BackColor = System.Drawing.Color.SpringGreen;
-              buttonConnect.Text = "Connected";
+              buttonConnect.Text = "Connect";
               this.textBoxPrint.Clear();
               modeChangeAllButtons(true);
               SerialPortWriteAndRead(Commands.Empty);
               SerialPortWriteAndRead(Commands.GetStatus);
-            } else {
-              MessageBox.Show("Failed Open Serial Port");
             }
+          } else {
+            MessageBox.Show("Failed Open Serial Port");
           }
         } else {
-          await Task.Delay(200);  // Wait for Connect to be ready
           lock (lock_connect) {
             serialPort.DiscardInBuffer();
             serialPort.DiscardOutBuffer();

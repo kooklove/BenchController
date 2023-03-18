@@ -130,25 +130,35 @@ namespace BenchController {
         int id = m.WParam.ToInt32();
         switch (id) {
           case (int)WmHotKeyId.Power:
+            this.textBoxPrint.AppendText("WmHotKeyId.Power\n");
             ToggleRadioButtonPower();
             break;
           case (int)WmHotKeyId.BenchReset:
+            this.textBoxPrint.AppendText("WmHotKeyId.BenchReset\n");
             DoBenchReset();
             break;
           case (int)WmHotKeyId.Reset:
+            this.textBoxPrint.AppendText("WmHotKeyId.Reset\n");
             DoReset();
             break;
           case (int)WmHotKeyId.DonwloadMode:
+            this.textBoxPrint.AppendText("WmHotKeyId.DonwloadMode\n");
             ToggleRadioButtonDownloadMode();
             break;
           case (int)WmHotKeyId.KL15:
+            this.textBoxPrint.AppendText("WmHotKeyId.KL15\n");
             ToggleRadioButtonKL15();
             break;
           case (int)WmHotKeyId.Connect:
+            this.textBoxPrint.AppendText("WmHotKeyId.Connect\n");
             UpdateButtonConnect();
             break;
           case (int)WmHotKeyId.TopMost:
+            this.textBoxPrint.AppendText("WmHotKeyId.TopMost\n");
             TogglecheckBoxTopMost();
+            break;
+          default:
+            this.textBoxPrint.AppendText("Unexpected Key\n");
             break;
         }
       }

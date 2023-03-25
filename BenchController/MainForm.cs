@@ -262,6 +262,7 @@ namespace BenchController {
             break;
         }
       }
+      this.updateContextMenuStripStatus();
     }
 
     private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e) {
@@ -320,11 +321,11 @@ namespace BenchController {
             await Task.Delay(2000);  // Wait for Connect to be ready
             lock (lock_connect) {
               buttonConnect.BackColor = System.Drawing.Color.SpringGreen;
-              buttonConnect.Text = "Connect";
+              buttonConnect.Text = "OK";
               this.textBoxPrint.Clear();
-              modeChangeAllButtons(true);
               SerialPortWriteAndRead(Commands.Empty);
               SerialPortWriteAndRead(Commands.GetStatus);
+              modeChangeAllButtons(true);
             }
           } else {
             MessageBox.Show("Failed Open Serial Port");
@@ -335,7 +336,7 @@ namespace BenchController {
             serialPort.DiscardOutBuffer();
             serialPort.Close();
             serialPort.Dispose();
-            this.textBoxPrint.AppendText("Disconnected");
+            this.textBoxPrint.AppendText("Connect");
             this.textBoxPrint.AppendText(Environment.NewLine);
             if (serialPort.IsOpen == false) {
               buttonConnect.BackColor = SystemColors.Control;
@@ -405,7 +406,6 @@ namespace BenchController {
 
     private bool ToggleRadioButtonPower() {
       bool result = false;
-      this.Activate();
       if (IsEnabledRadioButtonPower()) {
         result = true;
         if (radioButtonPowerOn.Checked) {
@@ -421,7 +421,6 @@ namespace BenchController {
 
     private bool ToggleRadioButtonDownloadMode() {
       bool result = false;
-      this.Activate();
       if (IsEnabledRadioButtonDownloadMode()) {
         result = true;
         if (radioButtonDownloadModeOn.Checked) {
@@ -437,7 +436,6 @@ namespace BenchController {
 
     private bool ToggleRadioButtonKL15() {
       bool result = false;
-      this.Activate();
       if (IsEnabledRadioButtonKL15()) {
         result = true;
         if (radioButtonKL15On.Checked) {
@@ -483,6 +481,7 @@ namespace BenchController {
                   radioButtonPowerOff.Checked = true;
               }
             }
+            this.toolStripMenuItemPower.Checked = radioButtonPowerOn.Checked;
             radioButtonPowerOn.BackColor = SystemColors.Control;
             radioButtonPowerOff.BackColor = System.Drawing.Color.LightCoral;
           } 
@@ -525,6 +524,7 @@ namespace BenchController {
                   radioButtonKL15Off.Checked = true;
               }
             }
+            this.toolStripMenuItemKL15.Checked = radioButtonKL15On.Checked;
             radioButtonKL15On.BackColor = SystemColors.Control;
             radioButtonKL15Off.BackColor = System.Drawing.Color.LightCoral;
           }
@@ -565,6 +565,7 @@ namespace BenchController {
                   radioButtonDownloadModeOff.Checked = true;
               }
             }
+            this.toolStripMenuItemDownloadMode.Checked = radioButtonDownloadModeOn.Checked;
             radioButtonDownloadModeOn.BackColor = SystemColors.Control;
             radioButtonDownloadModeOff.BackColor = System.Drawing.Color.Yellow;
           }
@@ -686,7 +687,6 @@ namespace BenchController {
     }
 
     private async void DoBenchReset() {
-      this.Activate();
       if (IsEnabledButtonBenchReset()) {
         buttonBenchReset.Enabled = false;
         radioButtonPowerOff.Checked = true;
@@ -701,7 +701,6 @@ namespace BenchController {
     }
 
     private async void DoReset() {
-      this.Activate();
       if (IsEnabledButtonReset()) {
         buttonReset.Enabled = false;
         SerialPortWriteAndRead(Commands.Reset);
@@ -712,6 +711,13 @@ namespace BenchController {
 
     private void buttonReset_Click(object sender, EventArgs e) {
       DoReset();
+    }
+
+    private void updateContextMenuStripStatus() {
+      this.toolStripMenuItemPower.Checked = this.radioButtonPowerOn.Checked;
+      this.toolStripMenuItemKL15.Checked = this.radioButtonKL15On.Checked;
+      this.toolStripMenuItemDownloadMode.Checked = this.radioButtonDownloadModeOn.Checked;
+      this.toolStripMenuItemMibCanConnect.Checked = this.radioButtonMibCanOn.Checked;
     }
 
     private void modeChangeAllButtons(bool modeOn) {

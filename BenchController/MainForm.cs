@@ -689,12 +689,12 @@ namespace BenchController {
     private async void DoBenchReset() {
       if (IsEnabledButtonBenchReset()) {
         buttonBenchReset.Enabled = false;
+        radioButtonKL15Off.Checked = true;
+        await Task.Delay(500);
         radioButtonPowerOff.Checked = true;
         await Task.Delay(500);
         radioButtonPowerOn.Checked = true;
-        await Task.Delay(500);
-        radioButtonKL15Off.Checked = true;
-        await Task.Delay(500);
+        await Task.Delay(1500);
         radioButtonKL15On.Checked = true;
         buttonBenchReset.Enabled = true;
       }

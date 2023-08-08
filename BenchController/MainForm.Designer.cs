@@ -1,4 +1,6 @@
-﻿namespace BenchController
+﻿using System.Drawing;
+
+namespace BenchController
 {
     partial class MainForm
     {
@@ -71,6 +73,18 @@
       this.radioButtonDoipOn = new System.Windows.Forms.RadioButton();
       this.radioButtonDoipOff = new System.Windows.Forms.RadioButton();
       this.textBoxPrint = new System.Windows.Forms.TextBox();
+      this.groupBoxAutoBenchReset = new System.Windows.Forms.GroupBox();
+      this.label_auto_bench_reset_sec = new System.Windows.Forms.Label();
+      this.Timer_AutoBenchReset = new System.Windows.Forms.TextBox();
+      this.radioButtonAutoBenchResetOn = new System.Windows.Forms.RadioButton();
+      this.radioButtonAutoBenchResetOff = new System.Windows.Forms.RadioButton();
+      this.groupBoxAutoEcuReset = new System.Windows.Forms.GroupBox();
+      this.label_auto_ecu_reset_sec = new System.Windows.Forms.Label();
+      this.Timer_AutoEcuReset = new System.Windows.Forms.TextBox();
+      this.radioButtonAutoEcuResetOn = new System.Windows.Forms.RadioButton();
+      this.radioButtonAutoEcuResetOff = new System.Windows.Forms.RadioButton();
+      this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+      this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
       this.groupBoxMibCan.SuspendLayout();
       this.groupBoxAbCan.SuspendLayout();
       this.groupBoxKl15.SuspendLayout();
@@ -78,6 +92,10 @@
       this.contextMenuStrip.SuspendLayout();
       this.groupBoxPower.SuspendLayout();
       this.groupBoxDoIP.SuspendLayout();
+      this.groupBoxAutoBenchReset.SuspendLayout();
+      this.groupBoxAutoEcuReset.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
       this.SuspendLayout();
       // 
       // buttonConnect
@@ -162,7 +180,7 @@
       this.groupBoxMibCan.Name = "groupBoxMibCan";
       this.groupBoxMibCan.Padding = new System.Windows.Forms.Padding(0);
       this.groupBoxMibCan.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      this.groupBoxMibCan.Size = new System.Drawing.Size(139, 40);
+      this.groupBoxMibCan.Size = new System.Drawing.Size(155, 40);
       this.groupBoxMibCan.TabIndex = 19;
       this.groupBoxMibCan.TabStop = false;
       this.groupBoxMibCan.Text = "MIB CAN";
@@ -217,7 +235,7 @@
       this.groupBoxAbCan.Name = "groupBoxAbCan";
       this.groupBoxAbCan.Padding = new System.Windows.Forms.Padding(0);
       this.groupBoxAbCan.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      this.groupBoxAbCan.Size = new System.Drawing.Size(139, 38);
+      this.groupBoxAbCan.Size = new System.Drawing.Size(155, 38);
       this.groupBoxAbCan.TabIndex = 20;
       this.groupBoxAbCan.TabStop = false;
       this.groupBoxAbCan.Text = "AB CAN";
@@ -363,7 +381,7 @@
       // abCanConnectToolStripMenuItem
       // 
       this.abCanConnectToolStripMenuItem.Name = "abCanConnectToolStripMenuItem";
-      this.abCanConnectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.abCanConnectToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
       this.abCanConnectToolStripMenuItem.Text = "ABCAN Connect";
       this.abCanConnectToolStripMenuItem.Visible = false;
       // 
@@ -449,13 +467,13 @@
             this.toolStripMenuItemMibCanConnect,
             this.closeToolStripMenuItem});
       this.contextMenuStrip.Name = "contextMenuStrip";
-      this.contextMenuStrip.Size = new System.Drawing.Size(181, 246);
+      this.contextMenuStrip.Size = new System.Drawing.Size(170, 224);
       this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
       // 
       // toolStripMenuItemShowWindow
       // 
       this.toolStripMenuItemShowWindow.Name = "toolStripMenuItemShowWindow";
-      this.toolStripMenuItemShowWindow.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemShowWindow.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemShowWindow.Text = "ShowWindow";
       this.toolStripMenuItemShowWindow.Click += new System.EventHandler(this.toolStripMenuItemShowWindow_Click);
       // 
@@ -465,7 +483,7 @@
       this.toolStripMenuItemTopMost.CheckOnClick = true;
       this.toolStripMenuItemTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemTopMost.Name = "toolStripMenuItemTopMost";
-      this.toolStripMenuItemTopMost.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemTopMost.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemTopMost.Text = "TopMost";
       this.toolStripMenuItemTopMost.Click += new System.EventHandler(this.toolStripMenuItemTopMost_Click);
       // 
@@ -476,7 +494,7 @@
       this.toolStripMenuItemPower.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemPower.Enabled = false;
       this.toolStripMenuItemPower.Name = "toolStripMenuItemPower";
-      this.toolStripMenuItemPower.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemPower.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemPower.Text = "PowerOn";
       this.toolStripMenuItemPower.Click += new System.EventHandler(this.toolStripMenuItemPower_Click);
       // 
@@ -487,7 +505,7 @@
       this.toolStripMenuItemKL15.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemKL15.Enabled = false;
       this.toolStripMenuItemKL15.Name = "toolStripMenuItemKL15";
-      this.toolStripMenuItemKL15.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemKL15.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemKL15.Text = "KL15On";
       this.toolStripMenuItemKL15.Click += new System.EventHandler(this.toolStripMenuItemKL15_Click);
       // 
@@ -498,7 +516,7 @@
       this.toolStripMenuItemDownloadMode.CheckState = System.Windows.Forms.CheckState.Checked;
       this.toolStripMenuItemDownloadMode.Enabled = false;
       this.toolStripMenuItemDownloadMode.Name = "toolStripMenuItemDownloadMode";
-      this.toolStripMenuItemDownloadMode.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemDownloadMode.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemDownloadMode.Text = "Download Mode";
       this.toolStripMenuItemDownloadMode.Click += new System.EventHandler(this.toolStripMenuItemDownloadMode_Click);
       // 
@@ -506,33 +524,33 @@
       // 
       this.toolStripMenuItemEcuReset.Enabled = false;
       this.toolStripMenuItemEcuReset.Name = "toolStripMenuItemEcuReset";
-      this.toolStripMenuItemEcuReset.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemEcuReset.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemEcuReset.Text = "Reset";
       // 
       // toolStripMenuItemBenchReset
       // 
       this.toolStripMenuItemBenchReset.Enabled = false;
       this.toolStripMenuItemBenchReset.Name = "toolStripMenuItemBenchReset";
-      this.toolStripMenuItemBenchReset.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemBenchReset.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemBenchReset.Text = "Bench Reset";
       // 
       // toolStripMenuItemMibCanConnect
       // 
       this.toolStripMenuItemMibCanConnect.Enabled = false;
       this.toolStripMenuItemMibCanConnect.Name = "toolStripMenuItemMibCanConnect";
-      this.toolStripMenuItemMibCanConnect.Size = new System.Drawing.Size(180, 22);
+      this.toolStripMenuItemMibCanConnect.Size = new System.Drawing.Size(169, 22);
       this.toolStripMenuItemMibCanConnect.Text = "MIBCAN Connect";
       this.toolStripMenuItemMibCanConnect.Visible = false;
-      //
+      // 
       // closeToolStripMenuItem
-      //
+      // 
       this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-      this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.closeToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
       this.closeToolStripMenuItem.Text = "Close";
       this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-      //
+      // 
       // radioButtonPowerOn
-      //
+      // 
       this.radioButtonPowerOn.Appearance = System.Windows.Forms.Appearance.Button;
       this.radioButtonPowerOn.AutoSize = true;
       this.radioButtonPowerOn.BackColor = System.Drawing.Color.Transparent;
@@ -612,7 +630,7 @@
       this.groupBoxDoIP.Name = "groupBoxDoIP";
       this.groupBoxDoIP.Padding = new System.Windows.Forms.Padding(0);
       this.groupBoxDoIP.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      this.groupBoxDoIP.Size = new System.Drawing.Size(139, 40);
+      this.groupBoxDoIP.Size = new System.Drawing.Size(155, 40);
       this.groupBoxDoIP.TabIndex = 20;
       this.groupBoxDoIP.TabStop = false;
       this.groupBoxDoIP.Text = "DoIP";
@@ -623,6 +641,7 @@
       this.radioButtonDoipOn.Appearance = System.Windows.Forms.Appearance.Button;
       this.radioButtonDoipOn.AutoSize = true;
       this.radioButtonDoipOn.BackColor = System.Drawing.Color.Transparent;
+      this.radioButtonDoipOn.Enabled = false;
       this.radioButtonDoipOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
       this.radioButtonDoipOn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
       this.radioButtonDoipOn.Location = new System.Drawing.Point(67, 12);
@@ -642,6 +661,7 @@
       this.radioButtonDoipOff.Appearance = System.Windows.Forms.Appearance.Button;
       this.radioButtonDoipOff.AutoSize = true;
       this.radioButtonDoipOff.BackColor = System.Drawing.Color.Transparent;
+      this.radioButtonDoipOff.Enabled = false;
       this.radioButtonDoipOff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
       this.radioButtonDoipOff.Location = new System.Drawing.Point(100, 12);
       this.radioButtonDoipOff.Margin = new System.Windows.Forms.Padding(0);
@@ -664,11 +684,169 @@
       this.textBoxPrint.TabIndex = 26;
       this.textBoxPrint.TextChanged += new System.EventHandler(this.TextBoxPrint_TextChanged);
       // 
+      // groupBoxAutoBenchReset
+      // 
+      this.groupBoxAutoBenchReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+      this.groupBoxAutoBenchReset.Controls.Add(this.label_auto_bench_reset_sec);
+      this.groupBoxAutoBenchReset.Controls.Add(this.Timer_AutoBenchReset);
+      this.groupBoxAutoBenchReset.Controls.Add(this.radioButtonAutoBenchResetOn);
+      this.groupBoxAutoBenchReset.Controls.Add(this.radioButtonAutoBenchResetOff);
+      this.groupBoxAutoBenchReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.groupBoxAutoBenchReset.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
+      this.groupBoxAutoBenchReset.Location = new System.Drawing.Point(6, 335);
+      this.groupBoxAutoBenchReset.Margin = new System.Windows.Forms.Padding(0);
+      this.groupBoxAutoBenchReset.Name = "groupBoxAutoBenchReset";
+      this.groupBoxAutoBenchReset.Padding = new System.Windows.Forms.Padding(0);
+      this.groupBoxAutoBenchReset.RightToLeft = System.Windows.Forms.RightToLeft.No;
+      this.groupBoxAutoBenchReset.Size = new System.Drawing.Size(155, 40);
+      this.groupBoxAutoBenchReset.TabIndex = 21;
+      this.groupBoxAutoBenchReset.TabStop = false;
+      this.groupBoxAutoBenchReset.Text = "Auto Bench Reset";
+      this.groupBoxAutoBenchReset.Visible = false;
+      // 
+      // label_auto_bench_reset_sec
+      // 
+      this.label_auto_bench_reset_sec.AutoSize = true;
+      this.label_auto_bench_reset_sec.Location = new System.Drawing.Point(59, 16);
+      this.label_auto_bench_reset_sec.Name = "label_auto_bench_reset_sec";
+      this.label_auto_bench_reset_sec.Size = new System.Drawing.Size(25, 12);
+      this.label_auto_bench_reset_sec.TabIndex = 29;
+      this.label_auto_bench_reset_sec.Text = "sec";
+      // 
+      // Timer_AutoBenchReset
+      // 
+      this.Timer_AutoBenchReset.Location = new System.Drawing.Point(6, 13);
+      this.Timer_AutoBenchReset.Name = "Timer_AutoBenchReset";
+      this.Timer_AutoBenchReset.Size = new System.Drawing.Size(53, 20);
+      this.Timer_AutoBenchReset.TabIndex = 27;
+      this.Timer_AutoBenchReset.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      this.Timer_AutoBenchReset.Validating += new System.ComponentModel.CancelEventHandler(this.Timer_AutoBenchReset_Validating);
+      // 
+      // radioButtonAutoBenchResetOn
+      // 
+      this.radioButtonAutoBenchResetOn.Appearance = System.Windows.Forms.Appearance.Button;
+      this.radioButtonAutoBenchResetOn.AutoSize = true;
+      this.radioButtonAutoBenchResetOn.BackColor = System.Drawing.SystemColors.Control;
+      this.radioButtonAutoBenchResetOn.Enabled = false;
+      this.radioButtonAutoBenchResetOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonAutoBenchResetOn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
+      this.radioButtonAutoBenchResetOn.Location = new System.Drawing.Point(87, 11);
+      this.radioButtonAutoBenchResetOn.Margin = new System.Windows.Forms.Padding(0);
+      this.radioButtonAutoBenchResetOn.Name = "radioButtonAutoBenchResetOn";
+      this.radioButtonAutoBenchResetOn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+      this.radioButtonAutoBenchResetOn.Size = new System.Drawing.Size(31, 22);
+      this.radioButtonAutoBenchResetOn.TabIndex = 4;
+      this.radioButtonAutoBenchResetOn.TabStop = true;
+      this.radioButtonAutoBenchResetOn.Text = "On";
+      this.radioButtonAutoBenchResetOn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.radioButtonAutoBenchResetOn.UseVisualStyleBackColor = false;
+      this.radioButtonAutoBenchResetOn.CheckedChanged += new System.EventHandler(this.radioButtonAutoBenchResetOn_CheckedChanged);
+      // 
+      // radioButtonAutoBenchResetOff
+      // 
+      this.radioButtonAutoBenchResetOff.Appearance = System.Windows.Forms.Appearance.Button;
+      this.radioButtonAutoBenchResetOff.AutoSize = true;
+      this.radioButtonAutoBenchResetOff.BackColor = System.Drawing.Color.LightCoral;
+      this.radioButtonAutoBenchResetOff.Enabled = false;
+      this.radioButtonAutoBenchResetOff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonAutoBenchResetOff.Location = new System.Drawing.Point(120, 11);
+      this.radioButtonAutoBenchResetOff.Margin = new System.Windows.Forms.Padding(0);
+      this.radioButtonAutoBenchResetOff.Name = "radioButtonAutoBenchResetOff";
+      this.radioButtonAutoBenchResetOff.Size = new System.Drawing.Size(32, 22);
+      this.radioButtonAutoBenchResetOff.TabIndex = 3;
+      this.radioButtonAutoBenchResetOff.TabStop = true;
+      this.radioButtonAutoBenchResetOff.Text = "Off";
+      this.radioButtonAutoBenchResetOff.UseVisualStyleBackColor = false;
+      this.radioButtonAutoBenchResetOff.CheckedChanged += new System.EventHandler(this.radioButtonAutoBenchResetOff_CheckedChanged);
+      // 
+      // groupBoxAutoEcuReset
+      // 
+      this.groupBoxAutoEcuReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+      this.groupBoxAutoEcuReset.Controls.Add(this.label_auto_ecu_reset_sec);
+      this.groupBoxAutoEcuReset.Controls.Add(this.Timer_AutoEcuReset);
+      this.groupBoxAutoEcuReset.Controls.Add(this.radioButtonAutoEcuResetOn);
+      this.groupBoxAutoEcuReset.Controls.Add(this.radioButtonAutoEcuResetOff);
+      this.groupBoxAutoEcuReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.groupBoxAutoEcuReset.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
+      this.groupBoxAutoEcuReset.Location = new System.Drawing.Point(5, 375);
+      this.groupBoxAutoEcuReset.Margin = new System.Windows.Forms.Padding(0);
+      this.groupBoxAutoEcuReset.Name = "groupBoxAutoEcuReset";
+      this.groupBoxAutoEcuReset.Padding = new System.Windows.Forms.Padding(0);
+      this.groupBoxAutoEcuReset.RightToLeft = System.Windows.Forms.RightToLeft.No;
+      this.groupBoxAutoEcuReset.Size = new System.Drawing.Size(156, 40);
+      this.groupBoxAutoEcuReset.TabIndex = 22;
+      this.groupBoxAutoEcuReset.TabStop = false;
+      this.groupBoxAutoEcuReset.Text = "Auto ECU Reset";
+      this.groupBoxAutoEcuReset.Visible = false;
+      // 
+      // label_auto_ecu_reset_sec
+      // 
+      this.label_auto_ecu_reset_sec.AutoSize = true;
+      this.label_auto_ecu_reset_sec.Location = new System.Drawing.Point(60, 17);
+      this.label_auto_ecu_reset_sec.Name = "label_auto_ecu_reset_sec";
+      this.label_auto_ecu_reset_sec.Size = new System.Drawing.Size(25, 12);
+      this.label_auto_ecu_reset_sec.TabIndex = 5;
+      this.label_auto_ecu_reset_sec.Text = "sec";
+      // 
+      // Timer_AutoEcuReset
+      // 
+      this.Timer_AutoEcuReset.Location = new System.Drawing.Point(7, 14);
+      this.Timer_AutoEcuReset.Name = "Timer_AutoEcuReset";
+      this.Timer_AutoEcuReset.Size = new System.Drawing.Size(53, 20);
+      this.Timer_AutoEcuReset.TabIndex = 28;
+      this.Timer_AutoEcuReset.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      this.Timer_AutoEcuReset.Validating += new System.ComponentModel.CancelEventHandler(this.Timer_AutoEcuReset_Validating);
+      // 
+      // radioButtonAutoEcuResetOn
+      // 
+      this.radioButtonAutoEcuResetOn.Appearance = System.Windows.Forms.Appearance.Button;
+      this.radioButtonAutoEcuResetOn.AutoSize = true;
+      this.radioButtonAutoEcuResetOn.BackColor = System.Drawing.SystemColors.Control;
+      this.radioButtonAutoEcuResetOn.Enabled = false;
+      this.radioButtonAutoEcuResetOn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonAutoEcuResetOn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
+      this.radioButtonAutoEcuResetOn.Location = new System.Drawing.Point(88, 12);
+      this.radioButtonAutoEcuResetOn.Margin = new System.Windows.Forms.Padding(0);
+      this.radioButtonAutoEcuResetOn.Name = "radioButtonAutoEcuResetOn";
+      this.radioButtonAutoEcuResetOn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+      this.radioButtonAutoEcuResetOn.Size = new System.Drawing.Size(31, 22);
+      this.radioButtonAutoEcuResetOn.TabIndex = 4;
+      this.radioButtonAutoEcuResetOn.TabStop = true;
+      this.radioButtonAutoEcuResetOn.Text = "On";
+      this.radioButtonAutoEcuResetOn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.radioButtonAutoEcuResetOn.UseVisualStyleBackColor = false;
+      // 
+      // radioButtonAutoEcuResetOff
+      // 
+      this.radioButtonAutoEcuResetOff.Appearance = System.Windows.Forms.Appearance.Button;
+      this.radioButtonAutoEcuResetOff.AutoSize = true;
+      this.radioButtonAutoEcuResetOff.BackColor = System.Drawing.Color.LightCoral;
+      this.radioButtonAutoEcuResetOff.Enabled = false;
+      this.radioButtonAutoEcuResetOff.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.radioButtonAutoEcuResetOff.Location = new System.Drawing.Point(121, 12);
+      this.radioButtonAutoEcuResetOff.Margin = new System.Windows.Forms.Padding(0);
+      this.radioButtonAutoEcuResetOff.Name = "radioButtonAutoEcuResetOff";
+      this.radioButtonAutoEcuResetOff.Size = new System.Drawing.Size(32, 22);
+      this.radioButtonAutoEcuResetOff.TabIndex = 3;
+      this.radioButtonAutoEcuResetOff.TabStop = true;
+      this.radioButtonAutoEcuResetOff.Text = "Off";
+      this.radioButtonAutoEcuResetOff.UseVisualStyleBackColor = false;
+      // 
+      // errorProvider1
+      // 
+      this.errorProvider1.ContainerControl = this;
+      // 
+      // errorProvider2
+      // 
+      this.errorProvider2.ContainerControl = this;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(170, 213);
+      this.ClientSize = new System.Drawing.Size(167, 211);
+      this.Controls.Add(this.groupBoxAutoEcuReset);
+      this.Controls.Add(this.groupBoxAutoBenchReset);
       this.Controls.Add(this.textBoxPrint);
       this.Controls.Add(this.groupBoxDoIP);
       this.Controls.Add(this.settings);
@@ -706,6 +884,12 @@
       this.groupBoxPower.PerformLayout();
       this.groupBoxDoIP.ResumeLayout(false);
       this.groupBoxDoIP.PerformLayout();
+      this.groupBoxAutoBenchReset.ResumeLayout(false);
+      this.groupBoxAutoBenchReset.PerformLayout();
+      this.groupBoxAutoEcuReset.ResumeLayout(false);
+      this.groupBoxAutoEcuReset.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -734,6 +918,16 @@
         private System.Windows.Forms.RadioButton radioButtonAbCanOn;
         private System.Windows.Forms.RadioButton radioButtonAbCanOff;
         private System.Windows.Forms.GroupBox groupBoxAbCan;
+        private System.Windows.Forms.GroupBox groupBoxAutoBenchReset;
+        private System.Windows.Forms.Label label_auto_bench_reset_sec;
+        private System.Windows.Forms.TextBox Timer_AutoBenchReset;
+        private System.Windows.Forms.RadioButton radioButtonAutoBenchResetOn;
+        private System.Windows.Forms.RadioButton radioButtonAutoBenchResetOff;
+        private System.Windows.Forms.GroupBox groupBoxAutoEcuReset;
+        private System.Windows.Forms.RadioButton radioButtonAutoEcuResetOn;
+        private System.Windows.Forms.RadioButton radioButtonAutoEcuResetOff;
+        private System.Windows.Forms.TextBox Timer_AutoEcuReset;
+        private System.Windows.Forms.Label label_auto_ecu_reset_sec;
         private System.Windows.Forms.CheckBox checkBoxExtended;
         private System.Windows.Forms.ComboBox comboBoxPort;
         private System.Windows.Forms.ToolStripMenuItem abCanConnectToolStripMenuItem;
@@ -752,8 +946,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEcuReset;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMibCanConnect;
         private System.IO.Ports.SerialPort serialPort;
-    private System.Windows.Forms.TextBox textBoxPrint;
-    private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxPrint;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+    private System.Windows.Forms.ErrorProvider errorProvider1;
+    private System.Windows.Forms.ErrorProvider errorProvider2;
   }
 }
 

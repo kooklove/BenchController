@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO.Ports;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenchController {
   enum WmHotKeyId {
@@ -208,11 +209,15 @@ namespace BenchController {
         this.groupBoxAbCan.Visible = true;
         this.groupBoxMibCan.Visible = true;
         this.groupBoxDoIP.Visible = true;
-        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 340);
+        this.groupBoxAutoBenchReset.Visible = true;
+        this.groupBoxAutoEcuReset.Visible = true;
+        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 420);
       } else {
         this.groupBoxAbCan.Visible = false;
         this.groupBoxMibCan.Visible = false;
         this.groupBoxDoIP.Visible = false;
+        this.groupBoxAutoBenchReset.Visible = false;
+        this.groupBoxAutoEcuReset.Visible = false;
         this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 213);
       }
     }
@@ -387,6 +392,16 @@ namespace BenchController {
 
     private bool IsEnabledButtonReset() {
       return this.buttonReset.Enabled;
+    }
+
+    private bool IsEnabledButtonAutoBenchReset()
+    {
+      return this.radioButtonAutoBenchResetOn.Checked == true;
+    }
+
+    private bool IsEnabledButtonAutoEcuReset()
+    {
+      return this.radioButtonAutoEcuResetOn.Checked == true;
     }
 
     private bool IsEnabledRadioButtonPower() {
@@ -641,6 +656,32 @@ namespace BenchController {
       radioButtonDoipOff.BackColor = System.Drawing.Color.LightCoral;
     }
 
+    private void radioButtonAutoBenchResetOn_CheckedChanged(object sender, EventArgs e)
+    {
+      radioButtonAutoBenchResetOn.BackColor = System.Drawing.Color.SpringGreen;
+      radioButtonAutoBenchResetOff.BackColor = SystemColors.Control;
+      DoAutoBenchReset();
+    }
+
+    private void radioButtonAutoBenchResetOff_CheckedChanged(object sender, EventArgs e)
+    {
+      radioButtonAutoBenchResetOn.BackColor = SystemColors.Control;
+      radioButtonAutoBenchResetOff.BackColor = System.Drawing.Color.LightCoral;
+    }
+
+    private void radioButtonAutoEcuResetOn_CheckedChanged(object sender, EventArgs e)
+    {
+      radioButtonAutoEcuResetOn.BackColor = System.Drawing.Color.SpringGreen;
+      radioButtonAutoEcuResetOff.BackColor = SystemColors.Control;
+      DoAutoEcuReset();
+    }
+
+    private void radioButtonAutoEcuResetOff_CheckedChanged(object sender, EventArgs e)
+    {
+      radioButtonAutoEcuResetOn.BackColor = SystemColors.Control;
+      radioButtonAutoEcuResetOff.BackColor = System.Drawing.Color.LightCoral;
+    }
+
     private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
       this.Activate();
     }
@@ -694,7 +735,7 @@ namespace BenchController {
         radioButtonPowerOff.Checked = true;
         await Task.Delay(500);
         radioButtonPowerOn.Checked = true;
-        await Task.Delay(1500);
+        await Task.Delay(2000);
         radioButtonKL15On.Checked = true;
         buttonBenchReset.Enabled = true;
       }
@@ -706,6 +747,24 @@ namespace BenchController {
         SerialPortWriteAndRead(Commands.Reset);
         await Task.Delay(200);
         buttonReset.Enabled = true;
+      }
+    }
+
+    private async void DoAutoBenchReset()
+    {
+      while(IsEnabledButtonAutoBenchReset())
+      {
+        DoBenchReset();
+        await Task.Delay(Convert.ToInt32(this.Timer_AutoBenchReset.Text));
+      }
+    }
+
+    private async void DoAutoEcuReset()
+    {
+      while (IsEnabledButtonAutoEcuReset())
+      {
+        DoReset();
+        await Task.Delay(Convert.ToInt32(this.Timer_AutoEcuReset.Text));
       }
     }
 
@@ -736,6 +795,10 @@ namespace BenchController {
         this.radioButtonMibCanOff.Enabled = true;
         this.radioButtonDoipOn.Enabled = true;
         this.radioButtonDoipOff.Enabled = true;
+        this.radioButtonAutoBenchResetOn.Enabled = true;
+        this.radioButtonAutoBenchResetOff.Enabled = true;
+        this.radioButtonAutoEcuResetOn.Enabled = true;
+        this.radioButtonAutoEcuResetOff.Enabled = true;
         this.toolStripMenuItemPower.Enabled = true;
         this.toolStripMenuItemEcuReset.Enabled = true;
         this.toolStripMenuItemDownloadMode.Enabled = true;
@@ -758,6 +821,10 @@ namespace BenchController {
         this.radioButtonMibCanOff.Enabled = false;
         this.radioButtonDoipOn.Enabled = false;
         this.radioButtonDoipOff.Enabled = false;
+        this.radioButtonAutoBenchResetOn.Enabled = false;
+        this.radioButtonAutoBenchResetOff.Enabled = false;
+        this.radioButtonAutoEcuResetOn.Enabled = false;
+        this.radioButtonAutoEcuResetOff.Enabled = false;
         this.toolStripMenuItemPower.Enabled = false;
         this.toolStripMenuItemEcuReset.Enabled = false;
         this.toolStripMenuItemDownloadMode.Enabled = false;
@@ -853,6 +920,38 @@ namespace BenchController {
 
     private void closeToolStripMenuItem_Click(object sender, EventArgs e) {
       this.Close();
+    }
+
+    private void Timer_AutoBenchReset_Validating(object sender, CancelEventArgs e)
+    {
+      try
+      {
+        int x = Int32.Parse(Timer_AutoBenchReset.Text);
+        errorProvider1.SetError(Timer_AutoBenchReset, "");
+      }
+      catch (Exception ex)
+      {
+        e.Cancel = true;
+        Timer_AutoBenchReset.Focus();
+        errorProvider1.SetError(Timer_AutoBenchReset, "Not an integer value.");
+        this.textBoxPrint.AppendText(ex.ToString() + "\n");
+      }
+    }
+
+    private void Timer_AutoEcuReset_Validating(object sender, CancelEventArgs e)
+    {
+      try
+      {
+        int x = Int32.Parse(Timer_AutoEcuReset.Text);
+        errorProvider2.SetError(Timer_AutoEcuReset, "");
+      }
+      catch (Exception ex)
+      {
+        e.Cancel = true;
+        Timer_AutoEcuReset.Focus();
+        errorProvider2.SetError(Timer_AutoEcuReset, "Not an integer value.");
+        this.textBoxPrint.AppendText(ex.ToString() + "\n");
+      }
     }
   }
 }

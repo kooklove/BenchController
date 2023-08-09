@@ -844,7 +844,7 @@ namespace BenchController
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(167, 211);
+      this.ClientSize = new System.Drawing.Size(167, 241);
       this.Controls.Add(this.groupBoxAutoEcuReset);
       this.Controls.Add(this.groupBoxAutoBenchReset);
       this.Controls.Add(this.textBoxPrint);

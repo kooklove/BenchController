@@ -211,14 +211,14 @@ namespace BenchController {
         this.groupBoxDoIP.Visible = true;
         this.groupBoxAutoBenchReset.Visible = true;
         this.groupBoxAutoEcuReset.Visible = true;
-        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 420);
+        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 455);
       } else {
         this.groupBoxAbCan.Visible = false;
         this.groupBoxMibCan.Visible = false;
         this.groupBoxDoIP.Visible = false;
         this.groupBoxAutoBenchReset.Visible = false;
         this.groupBoxAutoEcuReset.Visible = false;
-        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 213);
+        this.ClientSize = new System.Drawing.Size(this.ClientSize.Width, 230);
       }
     }
 
@@ -735,7 +735,7 @@ namespace BenchController {
         radioButtonPowerOff.Checked = true;
         await Task.Delay(500);
         radioButtonPowerOn.Checked = true;
-        await Task.Delay(2000);
+        await Task.Delay(5000);
         radioButtonKL15On.Checked = true;
         buttonBenchReset.Enabled = true;
       }
@@ -754,8 +754,19 @@ namespace BenchController {
     {
       while(IsEnabledButtonAutoBenchReset())
       {
-        DoBenchReset();
-        await Task.Delay(Convert.ToInt32(this.Timer_AutoBenchReset.Text));
+        if (IsEnabledButtonBenchReset())
+        {
+          buttonBenchReset.Enabled = false;
+          radioButtonKL15Off.Checked = true;
+          await Task.Delay(500);
+          radioButtonPowerOff.Checked = true;
+          await Task.Delay(500);
+          radioButtonPowerOn.Checked = true;
+          await Task.Delay(5000);
+          radioButtonKL15On.Checked = true;
+          buttonBenchReset.Enabled = true;
+        }
+        await Task.Delay(Convert.ToInt32(this.Timer_AutoBenchReset.Text) * 1000);
       }
     }
 
@@ -763,8 +774,14 @@ namespace BenchController {
     {
       while (IsEnabledButtonAutoEcuReset())
       {
-        DoReset();
-        await Task.Delay(Convert.ToInt32(this.Timer_AutoEcuReset.Text));
+        if (IsEnabledButtonReset())
+        {
+          buttonReset.Enabled = false;
+          SerialPortWriteAndRead(Commands.Reset);
+          await Task.Delay(200);
+          buttonReset.Enabled = true;
+        }
+        await Task.Delay(Convert.ToInt32(this.Timer_AutoEcuReset.Text) * 1000);
       }
     }
 
